@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Tillu</title>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    font-family: Arial;
+    text-align:center;
+    background: linear-gradient(to right,#ff758c,#ff7eb3);
+    color:white;
+}
+
+/* FIRST PAGE */
+#firstPage{ margin-top:40px; }
+
+.cake{
+    position:relative;
+    width:250px;
+    margin:auto;
+    margin-top:80px;
+}
+
+.layer1{ width:250px; height:70px; background:pink; border-radius:10px; }
+.layer2{ width:200px; height:60px; background:#ffb6c1; margin:auto; margin-top:-10px; border-radius:10px; }
+.layer3{ width:150px; height:50px; background:white; margin:auto; margin-top:-10px; border-radius:10px; }
+
+.candle{
+    width:15px; height:60px; background:red;
+    margin:auto; position:relative; cursor:pointer;
+}
+
+.flame{
+    font-size:30px;
+    position:absolute;
+    top:-35px; left:-8px;
+    animation: flicker 0.2s infinite;
+}
+
+@keyframes flicker{
+    0%{transform:scale(1);opacity:0.9;}
+    50%{transform:scale(1.1);opacity:1;}
+    100%{transform:scale(1);opacity:0.8;}
+}
+
+.clickText{
+    margin-top:30px;
+    font-size:28px;
+}
+
+/* PAGES */
+#secondPage, #photoPage{
+    display:none;
+    padding:20px;
+}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    padding:12px 25px;
+    background:white;
+    color:#ff1493;
+    font-size:20px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+/* PHOTOS */
+.photoContainer{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+}
+
+.photo{
+    width:200px;
+    height:200px;
+    border-radius:15px;
+    border:4px solid white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.photo:hover{ transform:scale(1.1); }
+
+</style>
+</head>
+
+<body>
+
+<!-- FIRST PAGE -->
+<div id="firstPage">
+    <div class="cake">
+        <div class="candle" onclick="showMessage()">
+            <div class="flame">🔥</div>
+        </div>
+        <div class="layer3"></div>
+        <div class="layer2"></div>
+        <div class="layer1"></div>
+    </div>
+
+    <div class="clickText">🎂 Click On The Candle 🎂</div>
+</div>
+
+<!-- SECOND PAGE -->
+<div id="secondPage">
+    <h2>🎉 HAPPY BIRTHDAY TILLU 💖</h2>
+
+    <p>
+        May your day be filled with joy, love, laughter and cake 🍰<br>
+        Wishing you all happiness in the world 💕
+		or me tuje her pal,her samya,her din,her saal tuje pareshan karungi 
+    </p>
+
+    <button class="btn" onclick="openPhotos()">Click Here</button>
+</div>
+
+<!-- PHOTO PAGE -->
+<div id="photoPage">
+
+    <h2>💖 Memories 💖</h2>
+
+    <div class="photoContainer">
+
+        <img class="photo" src="WhatsApp Image 2026-05-14 at 12.03.53 AM.jpeg" onclick="photo1()">
+        <img class="photo" src="WhatsApp Image 2026-05-14 at 12.05.43 AM.jpeg" onclick="photo2()">
+        <img class="photo" src="WhatsApp Image 2026-05-14 at 12.05.15 AM.jpeg" onclick="photo3()">
+        <img class="photo" src="tilak.jpeg" onclick="photo4()">
+
+    </div>
+
+
+</div>
+
+<!-- SONGS -->
+<audio id="song" loop>
+    <source src="SONG2.mp3">
+</audio>
+
+<audio id="s1"><source src="SONG6.mpeg"></audio>
+<audio id="s2"><source src="SONG5.mpeg"></audio>
+<audio id="s3"><source src="SONG3.mpeg"></audio>
+<audio id="s4"><source src="SONG4.mpeg"></audio>
+
+<script>
+
+// Candle click
+function showMessage(){
+    document.getElementById("firstPage").style.display="none";
+    document.getElementById("secondPage").style.display="block";
+    document.getElementById("song").play();
+}
+
+// CLICK HERE → STOP SONG FIRST
+function openPhotos(){
+
+    // STOP MAIN SONG FIRST
+    let mainSong = document.getElementById("song");
+    mainSong.pause();
+    mainSong.currentTime = 0;
+
+    // move to photo page
+    document.getElementById("secondPage").style.display="none";
+    document.getElementById("photoPage").style.display="block";
+}
+
+// STOP ALL PHOTO SONGS
+function stopAll(){
+    document.getElementById("s1").pause();
+    document.getElementById("s2").pause();
+    document.getElementById("s3").pause();
+    document.getElementById("s4").pause();
+}
+
+// PHOTO FUNCTIONS
+function photo1(){
+    stopAll();
+    document.getElementById("s1").play();
+    alert("tu mera pyarasa bachha ❤");
+}
+
+function photo2(){
+    stopAll();
+    document.getElementById("s2").play();
+    alert("bandar 😄");
+}
+
+function photo3(){
+    stopAll();
+    document.getElementById("s3").play();
+    alert("tillu baba ki jai ho 🙌");
+}
+
+function photo4(){
+    stopAll();
+    document.getElementById("s4").play();
+    alert("Best moments 💖");
+}
+
+</script>
+
+</body>
+</html>
